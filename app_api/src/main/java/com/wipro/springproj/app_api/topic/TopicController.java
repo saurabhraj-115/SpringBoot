@@ -1,6 +1,6 @@
 package com.wipro.springproj.app_api.topic;
 
-// import java.util.Arrays;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,11 @@ public class TopicController {
 
     @Autowired
     private TopicService topicService;
+
+    @RequestMapping("/")
+    public String basePage(){
+       return topicService.baseLine();
+    }
 
     @RequestMapping("/topics")
     public List<Topic> getAllTopicsString(){
