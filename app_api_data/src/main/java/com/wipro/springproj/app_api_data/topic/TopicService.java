@@ -41,7 +41,10 @@ public class TopicService {
     }
 
     public Topic getTopic(String id){
-        return topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
+
+        return topicRepository.findById(id).get();
+        
+        // return topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
     }
 
     public void addTopic(Topic topic){
@@ -66,7 +69,7 @@ public class TopicService {
 	}
 
 	public String baseLine() {
-        return "Welcome to the Base class!!";
+        return "Welcome to the Base1 class!!";
 	}
 
     
