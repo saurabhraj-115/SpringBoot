@@ -3,8 +3,9 @@ package com.wipro.springproj.app_api_data.courses;
 import com.wipro.springproj.app_api_data.topic.Topic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//  import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Course {
@@ -14,7 +15,7 @@ public class Course {
     private String name;
     private String description;
 
-    @Autowired
+    @ManyToOne //So that the mapping of many courses to a given topic could be mapped and understood by SpringBoot
     private Topic topic;
 
     public Course() {
