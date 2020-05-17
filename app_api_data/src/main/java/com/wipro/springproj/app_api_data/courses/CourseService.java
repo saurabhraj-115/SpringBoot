@@ -16,9 +16,15 @@ public class CourseService {
 
     @Autowired
     private CourseRepository courseRepository;
+    
+	public String baseLine() {
+        return "Welcome to the Base Course Page!!";
+	}
    
 
-    public List<Course> getAllCourses(){
+
+    // Need to handle this later
+    public List<Course> getAllCourses(String topicId){
         
         List<Course> courses = new ArrayList<Course>();
 
@@ -35,16 +41,16 @@ public class CourseService {
         
     }
 
-    public void addCourse(Course topic){
+    public void addCourse(Course course){
         
 
-        courseRepository.save(topic);
+        courseRepository.save(course);
     }
 
-    public void updateCourse(Course topic, String id){
+    public void updateCourse(Course course){
 
         
-        courseRepository.save(topic);
+        courseRepository.save(course);
         
     }
 
@@ -53,9 +59,9 @@ public class CourseService {
         courseRepository.deleteById(id);
 	}
 
-	public String baseLine() {
-        return "Welcome to the Base Page!!";
-	}
+
+
+
 
     
 }

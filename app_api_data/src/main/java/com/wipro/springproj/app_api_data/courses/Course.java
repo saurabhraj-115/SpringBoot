@@ -1,7 +1,10 @@
 package com.wipro.springproj.app_api_data.courses;
 
+import com.wipro.springproj.app_api_data.topic.Topic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Course {
@@ -11,18 +14,19 @@ public class Course {
     private String name;
     private String description;
 
+    @Autowired
+    private Topic topic;
+
     public Course() {
     }
 
-    public Course(String id, String name, String description) {
+    public Course(String id, String name, String description, String topicId) {
             this.id = id;
             this.name = name;
             this.description = description;
+            this.topic = new Topic(topicId, "", "");
     }
-    
-
-
-    
+        
     
 
     /**
@@ -65,6 +69,21 @@ public class Course {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+    /**
+     * @return Topic return the topic
+     */
+    public Topic getTopic() {
+        return topic;
+    }
+
+    /**
+     * @param topic the topic to set
+     */
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 
 }
