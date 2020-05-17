@@ -17,37 +17,37 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @RequestMapping("/topics/{topicID}/")
+    @RequestMapping("/topics/{topicId}/")
     public String basePage(){
        return courseService.baseLine();
     }
 
-    @RequestMapping("/topics/{topicID}/courses")
+    @RequestMapping("/topics/{topicId}/courses")
     public List<Course> getAllCoursesString(@PathVariable String topicId){
         return courseService.getAllCourses(topicId);
     }
     
     @RequestMapping("/topics/{topicID}/courses/{courseId}")
-    public Course getCourse(@PathVariable("courseId") String courseId){
+    public Course getCourse(@PathVariable String courseId){
        return courseService.getCourse(courseId);
     }
 
 
-    @RequestMapping(method = RequestMethod.POST , value = "/topics/{topicID}/courses/")
-    public void addCourse(@RequestBody Course course, @PathVariable("topicId") String topicId){
+    @RequestMapping(method = RequestMethod.POST , value = "/topics/{topicId}/courses/")
+    public void addCourse(@RequestBody Course course, @PathVariable String topicId){
         course.setTopic(new Topic(topicId, "",""));
         courseService.addCourse(course);
     }
 
 
-    @RequestMapping(method = RequestMethod.PUT , value = "/topics/{topicID}/courses/{courseId}")
-    public void updateCourse(@RequestBody Course course, @PathVariable("topicId") String topicId , @PathVariable("courseId") String courseId){
+    @RequestMapping(method = RequestMethod.PUT , value = "/topics/{topicId}/courses/{courseId}")
+    public void updateCourse(@RequestBody Course course, @PathVariable String topicId , @PathVariable String courseId){
         course.setTopic(new Topic(topicId , "" , ""));
         courseService.updateCourse(course);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE , value = "/topics/{topicID}/courses/{courseId}")
-    public void deleteCourse(@PathVariable("courseId")  String courseId){
+    @RequestMapping(method = RequestMethod.DELETE , value = "/topics/{topicId}/courses/{courseId}")
+    public void deleteCourse(@PathVariable String courseId){
         courseService.deleteCourse(courseId);
     }
     
