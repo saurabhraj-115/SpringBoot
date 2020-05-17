@@ -16,8 +16,6 @@ public class TopicService {
 
     @Autowired
     private TopicRepository topicRepository;
-
-
     // We don't need this hardcoded list for database
     // private List <Topic> topics = new ArrayList<>( Arrays.asList(
     //     new Topic("01", "Ram", "Good"),
