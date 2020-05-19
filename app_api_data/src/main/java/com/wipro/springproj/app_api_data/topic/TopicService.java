@@ -16,22 +16,10 @@ public class TopicService {
 
     @Autowired
     private TopicRepository topicRepository;
-    // We don't need this hardcoded list for database
-    // private List <Topic> topics = new ArrayList<>( Arrays.asList(
-    //     new Topic("01", "Ram", "Good"),
-    //     new Topic("02", "Ram2", "Good2"),
-    //     new Topic("03", "Ram3", "Good3"),
-    //     new Topic("04", "Ram4", "Good4"),
-    //     new Topic("05", "Ram5", "Good5"),
-    //     new Topic("06", "Ram6", "Good6"),
-    //     new Topic("07", "Ram7", "Good7")
-    // )
-    // );
-
+    
     public List<Topic> getAllTopics(){
-        // return topics;
+       
         List<Topic> topics = new ArrayList<Topic>();
-
         // findAll return an iterable, and we use the funtion on this iterable 
         // to say what action needs to be performed via forEach method 
         topicRepository.findAll().forEach(topics::add);
