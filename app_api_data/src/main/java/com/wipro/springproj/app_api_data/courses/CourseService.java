@@ -16,14 +16,7 @@ public class CourseService {
 
     @Autowired
     private CourseRepository courseRepository;
-    
-	public String baseLine() {
-        return "Welcome to the Base Course Page!!";
-	}
-   
-
-
-    
+       
     public List<Course> getAllCourses(String topicId){
         
         List<Course> courses = new ArrayList<Course>(); 
