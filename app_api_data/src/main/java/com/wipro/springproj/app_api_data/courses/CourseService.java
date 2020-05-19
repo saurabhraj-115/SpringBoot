@@ -1,7 +1,6 @@
 package com.wipro.springproj.app_api_data.courses;
 
 import java.util.ArrayList;
-// import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +16,10 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
        
-    public List<Course> getAllCourses(String topicId){
-        
+    public List<Course> getAllCourses(String topicId){    
+            
         List<Course> courses = new ArrayList<Course>(); 
-
         courseRepository.findByTopicId(topicId).forEach(courses::add);
-
         return courses;
 
     }

@@ -23,7 +23,7 @@ public class CourseController {
     }
     
     @RequestMapping("/topics/{topicID}/courses/{courseId}")
-    public Course getCourse(@PathVariable String courseId){
+    public Course getCourse(@PathVariable("courseId") String courseId){
        return courseService.getCourse(courseId);
     }
 
@@ -36,13 +36,13 @@ public class CourseController {
 
 
     @RequestMapping(method = RequestMethod.PUT , value = "/topics/{topicId}/courses/{courseId}")
-    public void updateCourse(@RequestBody Course course, @PathVariable String topicId , @PathVariable String courseId){
+    public void updateCourse(@RequestBody Course course, @PathVariable("topicId") String topicId , @PathVariable("courseId") String courseId){
         course.setTopic(new Topic(topicId , "" , ""));
         courseService.updateCourse(course);
     }
 
     @RequestMapping(method = RequestMethod.DELETE , value = "/topics/{topicId}/courses/{courseId}")
-    public void deleteCourse(@PathVariable String courseId){
+    public void deleteCourse(@PathVariable("courseId") String courseId){
         courseService.deleteCourse(courseId);
     }
     

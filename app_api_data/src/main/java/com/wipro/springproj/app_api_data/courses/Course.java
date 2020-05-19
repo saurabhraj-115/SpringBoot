@@ -15,7 +15,8 @@ public class Course {
     private String name;
     private String description;
 
-    @ManyToOne //So that the mapping of many courses to a given topic could be mapped and understood by SpringBoot
+    //So that the mapping of many courses to a given topic could be mapped and understood by SpringBoot
+    @ManyToOne 
     private Topic topic;
 
     public Course() {
